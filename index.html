@@ -29,6 +29,7 @@
       .sidenav {
         height: auto;
         padding: 15px;
+	overflow: scroll;
       }
       .row.content {height: auto;} 
     }
@@ -46,13 +47,23 @@
 					</object>
 				</div>
 				<div class="col-sm-3 sidenav">
+                                        <h2>test.pdf</h2>
+					<p>This document as been classified as "NDA" and was last updated on 11.09.2017.</p>
 					<h3>Entities detected</h3>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search entities...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
 					<ol>
-						<li>Mantigma GmbH (legal entity)</li>
-						<li>Jakob Etzel (natural person)</li>
+						<li><a href="#e1">Mantigma GmbH</a> (legal entity)</li>
+						<li><a href="#e2">Jakob Etzel</a> (natural person)</li>
 					</ol>
 					<h3>Detailed information<h3>
-					<h4>1. Mantigma GmbH</h4>
+					<h4 id="e1">1. Mantigma GmbH</h4>
 					<p>Legal entity<br>Country: Austria<br>Address: Siebenbrunnengasse 17, 1050 Wien, Austria<br>Company register number: FN 447445 h<br>Company register: Commercial Court of Vienna
 					</p>
 					<h5>Relationships</h5>
@@ -80,7 +91,7 @@
                                                 <li>and <a href="#">115 more</a> occurences...</li>
 					</ul>
 					<hr />
-					<h4>2. Jakob Etzel</h4>
+					<h4 id="e2">2. Jakob Etzel</h4>
 					<p>Natural person<br>Citizenship: Austria<br>Residency: Austria<br>Address: Sankt-Paul-Gasse 6/18, 3500 Krems an der Donau, Austria<br>Birthdaye: 23.03.1992</p>
                                         <h5>Relationships</h5>
                                         <ul>
