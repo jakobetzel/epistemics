@@ -1,0 +1,55 @@
+#relationship_graph {
+	width: 100%;
+	height: 100%;
+	border: 1px solid lightgray;
+	background-color: #efefef;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {height: 1500px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+overflow: scroll;
+  }
+  .row.content {height: auto;} 
+}
+
+#dialog {
+	display: none;
+
+}
+
+.progress-container {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.progress-label {
+	color: #868e96;
+	margin-bottom: 0px;
+}
+
+.progress-label a {
+	color: #868e96;
+}
+
+.progress-label a:hover {
+	color: black;
+	text-decoration: none;
+}
