@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script type="text/javascript" src="AT/legal_entities"></script>
+		<script type="text/javascript" src="AT/natural_persons"></script>
+		<script type="text/javascript" src="DE/legal_entities"></script>
+		<script type="text/javascript" src="DE/natural_persons"></script>
+		<script type="text/javascript" src="UA/legal_entities"></script>
+		<script type="text/javascript" src="UA/natural_persons"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- vis.js -->
+		<script type="text/javascript" src="../node_modules/vis/dist/vis.js"></script>
+		<link rel="stylesheet" href="../node_modules/vis/dist/vis.css" type="text/css" />
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				output = "";
+				for (var le in AT_legal_entities) {
+					output += AT_legal_entities[le]['name'];
+				}
+
+				//Create nodes for graph
+				nodes = [];
+
+				nodes_AT_legal_entities = Object.keys(AT_legal_entities).map(function(le) {
+					var e = AT_legal_entities[le];
+					return {id: le, group: 'lE', label: e['name'], title: e['code'] ? 'AT FN ' + e['code'] : ''};
+				});
+				nodes = nodes.concat(nodes_AT_legal_entities);
+
+				nodes_AT_natural_persons = Object.keys(AT_natural_persons).map(function(np) {
+					var e = AT_natural_persons[np];
+					return {id: np, group: 'nP', label: e['name'], title: 'AT ' + (e['birthday'] ? e['birthday'] : '')};
+				});
+				nodes = nodes.concat(nodes_AT_natural_persons);
+
+				nodes_DE_legal_entities = Object.keys(DE_legal_entities).map(function(le) {
+					var e = DE_legal_entities[le];
+					return {id: le, group: 'lE', label: e['name'], title: e['code'] ? 'DE HRB ' + e['code'] : ''};
+				});
+				nodes = nodes.concat(nodes_DE_legal_entities);
+
+				nodes_DE_natural_persons = Object.keys(DE_natural_persons).map(function(np) {
+					var e = DE_natural_persons[np];
+					return {id: np, group: 'nP', label: e['name'], title: 'DE ' + (e['birthday'] ? e['birthday'] : '')};
+				});
+				nodes = nodes.concat(nodes_DE_natural_persons);
+
+				// TODO: Take care of correct encoding of 
+
+				nodes_UA_legal_entities = Object.keys(UA_legal_entities).map(function(le) {
+					var e = UA_legal_entities[le];
+					return {id: le, group: 'lE', label: e['full_name'], title: e['code'] ? 'UA ' + e['code'] : ''};
+				});
+				// nodes = nodes.concat(nodes_UA_legal_entities);
+
+				nodes_UA_natural_persons = Object.keys(UA_natural_persons).map(function(np) {
+					var e = UA_natural_persons[np];
+					return {id: np, group: 'nP', label: e['name'], title: e['location'] ? e['location'] : ''};
+				});
+				// nodes = nodes.concat(nodes_UA_natural_persons);
+
+				//Create edges for graph
+				edges = [];
+
+				edges_AT = [].concat.apply(
+					[], 
+					Object.keys(AT_legal_entities).map(function(le){
+						e = AT_legal_entities[le];
+						persons = e['persons'] ? e['persons'] : [];
+						return persons.map(function(p){
+							p_new = {};
+							p_new['to'] = parseInt(le);
+							p_new['from'] = p['id'];
+							p_new['label'] = p['role'];
+							p_new['title'] = p['from'] ? 'since ' + p['from'] : '';
+							p_new['title'] += p['to'] ? ' until ' + p['to'] : '';
+							return p_new;
+						});
+					})
+				);
+				edges = edges.concat(edges_AT);
+
+				edges_DE = [].concat.apply(
+					[], 
+					Object.keys(DE_legal_entities).map(function(le){
+						e = DE_legal_entities[le];
+						persons = e['persons'] ? e['persons'] : [];
+						return persons.map(function(p){
+							p_new = {};
+							p_new['to'] = parseInt(le);
+							p_new['from'] = p['id'];
+							p_new['label'] = p['role'];
+							p_new['title'] = p['from'] ? 'since ' + p['from'] : '';
+							p_new['title'] += p['to'] ? ' until ' + p['to'] : '';
+							return p_new;
+						});
+					})
+				);
+				edges = edges.concat(edges_DE);
+
+				// provide the data in the vis format
+				var data = {
+				    nodes: new vis.DataSet(nodes),
+				    edges: new vis.DataSet(edges),
+				};
+				var options = {
+				    groups: {
+				        nP: {
+				            color: {background: 'black'}, 
+				            borderWidth: 3,
+				            shape: 'icon',
+				            icon: {
+				                face: 'FontAwesome',
+				                code: '\uf007',
+				                size: 50,
+				                color: 'black',
+				            },
+				        },
+				        lE: {
+				            color: {background: 'white', border: 'blue'}, 
+				            borderWidth: 3,
+				        },
+				        further: {
+				            color: {background: 'red', border: 'black'},
+				            shape: 'diamond',
+				            label: 'more',
+				        },
+				        test: {
+				            color: 'red',
+				        },
+				    },
+				    edges: {
+				        arrows: 'to',
+				    },
+				    layout: {
+				        hierarchical: false,
+				        improvedLayout: true,
+				    },
+				};
+
+			    var container = document.getElementById('relationship_graph');
+    			var network = new vis.Network(container, data, options);
+    			network.fit();
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Data Overview</h1>
+		<div id="relationship_graph" style="
+			width: 100%;
+			height: 800px;
+			border: 1px solid lightgray;
+			background-color: #efefef;
+		"></div>
+	</body>
+</html>
