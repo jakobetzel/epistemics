@@ -68,7 +68,7 @@ var edges = new vis.DataSet([
     {from: 4, to: 2, label: '(AR)', title: 'from 2017 to 2017'},
     {from: 6, to: 1, label: 'O', title: 'since 2017'},
     {from: 6, to: 1, label: '(AR)', title: 'from 2016 to 2017'},
-    {from: 7, to: 1, label: 'O', title: 'since 2017'},
+    {from: 7, to: 1, label: 'O', title: 'since 2016'},
     {from: 7, to: 1, label: '(AR)', title: 'from 2016 to 2017'},
     {from: 8, to: 3, label: 'O'},
     {from: 8, to: 3, label: 'MD'},
