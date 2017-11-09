@@ -1,7 +1,9 @@
 var AT_natural_persons = {
     4: {
         name: 'Jakob Etzel',
-        birthday: '23.03.1992'
+        birthday: '23.03.1992',
+        residency: 'Austria',
+        address: 'Sankt-Paul-Gasse 6/18, 3500 Krems an der Donau, Austria'
     },
     5: {
         name: 'Martin Prebio',

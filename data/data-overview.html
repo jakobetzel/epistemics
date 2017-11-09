@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script type="text/javascript" src="AT/legal_entities"></script>
-		<script type="text/javascript" src="AT/natural_persons"></script>
-		<script type="text/javascript" src="DE/legal_entities"></script>
-		<script type="text/javascript" src="DE/natural_persons"></script>
-		<script type="text/javascript" src="UA/legal_entities"></script>
-		<script type="text/javascript" src="UA/natural_persons"></script>
+		<script type="text/javascript" src="AT/legal_entities.js"></script>
+		<script type="text/javascript" src="AT/natural_persons.js"></script>
+		<script type="text/javascript" src="DE/legal_entities.js"></script>
+		<script type="text/javascript" src="DE/natural_persons.js"></script>
+		<script type="text/javascript" src="UA/legal_entities.js"></script>
+		<script type="text/javascript" src="UA/natural_persons.js"></script>
+		<script type="text/javascript" src="contracts/contracts.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- vis.js -->
@@ -14,6 +15,7 @@
 		<link rel="stylesheet" href="../node_modules/vis/dist/vis.css" type="text/css" />
 
 		<script type="text/javascript">
+			$.getScript('contracts/contracts.js');
 			$(document).ready(function() {
 				output = "";
 				for (var le in AT_legal_entities) {
