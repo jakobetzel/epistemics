@@ -5,6 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- data -->
+		<script type="text/javascript" src="data/AT/legal_entities.js"></script>
+		<script type="text/javascript" src="data/AT/natural_persons.js"></script>
+		<script type="text/javascript" src="data/DE/legal_entities.js"></script>
+		<script type="text/javascript" src="data/DE/natural_persons.js"></script>
+		<script type="text/javascript" src="data/UA/legal_entities.js"></script>
+		<script type="text/javascript" src="data/UA/natural_persons.js"></script>
+		<script type="text/javascript" src="data/contracts/contracts.js"></script>
+		<script type="text/javascript" src="data/data_munging.js"></script>
+
 		<!-- vis.js -->
 		<script type="text/javascript" src="node_modules/vis/dist/vis.js"></script>
 		<link rel="stylesheet" href="node_modules/vis/dist/vis.css" type="text/css" />
@@ -24,6 +34,26 @@
 
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<script type="text/javascript" src='graph.js'></script>
+		<script type="text/javascript" src="data/contracts/contracts.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var url_string = window.location.href;
+				var url = new URL(url_string);
+				var c = url.searchParams.get("c");
+				var contract = contracts[c];
+				$('#contract').attr('data', 'data/contracts/' + contract['file']);
+				var list = document.getElementById('entitiesList');
+				for(var i = 0; i < contract['entities'].length; i++) {
+					var item = document.createElement('li');
+					var entity = entities[contract['entities'][i]['country']][contract['entities'][i]['type']][contract['entities'][i]['id']];
+					item.appendChild(document.createTextNode(
+						entity['name'] + " (" + 
+							(contract['entities'][i]['type'] == "le" ? "legal entity" : "natural person") + ")"
+					));
+					list.appendChild(item);
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<div id='dialog' title='Relationship Graph'>
@@ -41,7 +71,7 @@
 		<div class="container-fluid">
 			<div class="row content">
 				<div class="col-sm-8">
-					<object data="test.pdf" type="application/pdf" width="100%" height="2000px">
+					<object id="contract" data="" type="application/pdf" width="100%" height="2000px">
 						alt : This document could not be shown.
 					</object>
 				</div>
@@ -57,7 +87,7 @@
 							</button>
 						</span>
 					</div>
-					<ol>
+					<ol id='entitiesList'>
 						<li><a href="#e1">Mantigma GmbH</a> (legal entity)</li>
 						<li><a href="#e2">Jakob Etzel</a> (natural person)</li>
 					</ol>
