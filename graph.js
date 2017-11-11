@@ -19,7 +19,7 @@ $(document).ready(function() {
 });
 
 // create an array with nodes
-var nodes = new vis.DataSet([
+var nodes_Jakob = new vis.DataSet([
     {id: 1, group: 'lE', label: 'Mantigma GmbH', title: 'AT FN 447445 h'},
     {id: 2, group: 'lE', label: 'IntraBase GmbH in Liqu.', title: 'AT FN 464250 x'},
     {id: 3, group: 'lE', label: 'borisgloger beteiligungs gmbh', title: 'DE HRB 710013'},
@@ -58,7 +58,7 @@ var nodes = new vis.DataSet([
 ]);
 
 // create an array with edges
-var edges = new vis.DataSet([
+var edges_Jakob = new vis.DataSet([
     {from: 4, to: 1, label: 'O', title: 'since 2016'},
     {from: 4, to: 1, label: 'MD', title: 'since 2016'},
     {from: 5, to: 1, label: 'O', title: 'since 2016'},
@@ -115,6 +115,39 @@ var edges = new vis.DataSet([
     {from: 32, to: 33, label: 'O'},
     {from: 34, to: 24},
     {from: 35, to: 26},
+]);
+
+var nodes = new vis.DataSet([
+    {id: 1, group: 'lE', label: 'ТОВ ТА ВЕНЧУРС'},
+    {id: 2, group: 'lE', label: 'ТОВ УКРАЇНСЬКИЙ КІНОФЕСТИВАЛЬ'},
+    {id: 3, group: 'nP', label: 'ЯЩЕНКО С.Г.', shape: 'box', color: 'yellow'},
+    {id: 4, group: 'lE', label: 'Венчур Холдинг ЛТД'},
+    {id: 5, group: 'lE', label: 'ТОВ ТРАФІК ФІЛМЗ'},
+    {id: 6, group: 'lE', label: 'ТОВ АРТХАУС ТРАФІК'},
+    {id: 7, group: 'lE', label: 'ТОВ ФІРМА ПУСК'},
+    {id: 8, group: 'lE', label: 'ТОВ ВЕБТРЕЙД'},
+    {id: 9, group: 'nP', label: 'Тігіпко В.В.', shape: 'box', color: 'yellow'},
+    {id: 10, group: 'nP', label: 'Іванов Д.В.', shape: 'box', color: 'yellow'},
+    {id: 11, group: 'nP', label: 'Шух М.М.', shape: 'box', color: 'yellow'},
+    {id: 12, group: 'nP', label: 'Іванов В.К.', shape: 'box', color: 'yellow'},
+]);
+
+var edges = new vis.DataSet([
+    {from: 3, to: 1, label: 'CEO', },
+    {from: 3, to: 2, label: 'CEO', },
+    {from: 3, to: 8, label: 'CEO', },
+    {from: 3, to: 7, label: 'BF', },
+    {from: 4, to: 1, label: 'BF', },
+    {from: 10, to: 5, label: 'CEO', },
+    {from: 10, to: 6, label: 'CEO', },
+    {from: 10, to: 2, label: 'BF', },
+    {from: 9, to: 2, label: 'BF', },
+    {from: 9, to: 6, label: 'BF', },
+    {from: 9, to: 4, label: 'BF', },
+    {from: 11, to: 6, label: 'BF', },
+    {from: 11, to: 5, label: 'BF', },
+    {from: 12, to: 6, label: 'BF', },
+    {from: 12, to: 5, label: 'BF', },
 ]);
 
 // provide the data in the vis format
