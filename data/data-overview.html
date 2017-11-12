@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="UA/legal_entities.js"></script>
 		<script type="text/javascript" src="UA/natural_persons.js"></script>
 		<script type="text/javascript" src="contracts/contracts.js"></script>
+		<script type="text/javascript" src="data_munging.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- vis.js -->
@@ -16,7 +17,39 @@
 		<link rel="stylesheet" href="../node_modules/vis/dist/vis.css" type="text/css" />
 
 		<script type="text/javascript">
-			$.getScript('contracts/contracts.js');
+			function compareEntities(a, b) {
+				if(a['country'] == b['country'] && a['type'] == b['type'] && a['id'] == b['id']) {
+					return true;
+				} else {
+					return false;
+				}
+			};
+
+			function entityInList(list, e1) {
+				var found = false;
+				list.forEach(function(e2){
+					if(compareEntities(e1, e2)) {
+						found = true;
+					}
+				});
+				return found;
+			};
+
+			function buildGraph(seed) {
+				seed.forEach(function(e){
+					if(e['type'] == 'le') {
+						//find all relations
+						related_parties = entities[e['country']][e['type']][e['id']]['persons'];
+						//check wether they should be added to graph
+						related_parties.forEach(function(rp){
+							if(entityInList(seed, rp)) {
+								seed.push(rp);
+							}
+						});
+					}
+				});
+			};
+
 			$(document).ready(function() {
 				output = "";
 				for (var le in AT_legal_entities) {
@@ -54,15 +87,15 @@
 
 				nodes_UA_legal_entities = Object.keys(UA_legal_entities).map(function(le) {
 					var e = UA_legal_entities[le];
-					return {id: le, group: 'lE', label: e['full_name'], title: e['code'] ? 'UA ' + e['code'] : ''};
+					return {id: le, group: 'lE', label: e['short_name'], title: e['code'] ? 'UA ' + e['code'] : ''};
 				});
-				// nodes = nodes.concat(nodes_UA_legal_entities);
+				 nodes = nodes.concat(nodes_UA_legal_entities);
 
 				nodes_UA_natural_persons = Object.keys(UA_natural_persons).map(function(np) {
 					var e = UA_natural_persons[np];
 					return {id: np, group: 'nP', label: e['name'], title: e['location'] ? e['location'] : ''};
 				});
-				// nodes = nodes.concat(nodes_UA_natural_persons);
+				 nodes = nodes.concat(nodes_UA_natural_persons);
 
 				//Create edges for graph
 				edges = [];
@@ -102,6 +135,24 @@
 					})
 				);
 				edges = edges.concat(edges_DE);
+
+				edges_UA = [].concat.apply(
+					[], 
+					Object.keys(UA_legal_entities).map(function(le){
+						e = UA_legal_entities[le];
+						persons = e['persons'] ? e['persons'] : [];
+						return persons.map(function(p){
+							p_new = {};
+							p_new['to'] = parseInt(le);
+							p_new['from'] = p['id'];
+							p_new['label'] = p['role'];
+							p_new['title'] = p['from'] ? 'since ' + p['from'] : '';
+							p_new['title'] += p['to'] ? ' until ' + p['to'] : '';
+							return p_new;
+						});
+					})
+				);
+				edges = edges.concat(edges_UA);
 
 				// provide the data in the vis format
 				var data = {

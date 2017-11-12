@@ -1,7 +1,170 @@
 var UA_legal_entities = {
+	101: {
+		full_name: "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"МАНТІГМА УКРАЇНА\"",
+		short_name: "ТОВ \"МАНТІГМА УКРАЇНА\"",
+		code: "52560512",
+		location: "79005, м.Львів, вул. Личаківська, БУДИНОК 34",
+		persons: [
+			{
+				country: 'AT',
+				type: 'le',
+				id: 1,
+				role: 'O',
+				from: '2017'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 103,
+				role: 'O',
+				from: '2017'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 104,
+				role: 'MD',
+				from: '2017'
+			}
+		]
+	},
+	102: {
+		full_name: "ПРИВАТНЕ ПІДПРИЄМСТВО \"МАНТЕГО\"",
+		short_name: "ПП \"МАНТЕГО\"",
+		code: "32581224",
+		location: "84343, м.Стрий, вул. ШЕВЧЕНКА, БУДИНОК 10",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 105,
+				role: 'O',
+				from: '2017'
+			}
+		]
+	},
+	201: {
+		short_name: "ТОВ ТА ВЕНЧУРС",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 203,
+				role: 'MD'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 204,
+				role: 'UBO'
+			}
+		]
+	},
+	202: {
+		short_name: "ТОВ УКРАЇНСЬКИЙ КІНОФЕСТИВАЛЬ",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 203,
+				role: 'MD'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 210,
+				role: 'UBO'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 209,
+				role: 'UBO'
+			}
+		]
+	},
+	204: {
+		short_name: "Венчур Холдинг ЛТД",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 209,
+				role: 'UBO'
+			}
+		]
+	},
+	205: {
+		short_name: "ТОВ ТРАФІК ФІЛМЗ",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 210,
+				role: 'MD'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 211,
+				role: 'UBO'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 212,
+				role: 'UBO'
+			}
+		]
+	},
+	206: {
+		short_name: "ТОВ АРТХАУС ТРАФІК",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 209,
+				role: 'UBO'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 211,
+				role: 'UBO'
+			},
+			{
+				country: 'UA',
+				type: 'np',
+				id: 212,
+				role: 'UBO'
+			}
+		]
+	},
+	207: {
+		short_name: "ТОВ ФІРМА ПУСК",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 203,
+				role: 'UBO'
+			}
+		]
+	},
+	208: {
+		short_name: "ТОВ ВЕБТРЕЙД",
+		persons: [
+			{
+				country: 'UA',
+				type: 'np',
+				id: 203,
+				role: 'MD'
+			}
+		]
+	},
 	40224612: {
 	    "full_name": "ГРОМАДСЬКА ОРГАНІЗАЦІЯ \"ПРОФЕШЕНАЛ ГАВЕРМЕНТ\"",
-	    "short_name": "ГО \"ПРОФЕШЕНАЛ ГАВЕРМЕНТ\"",
+	    short_name: "ГО \"ПРОФЕШЕНАЛ ГАВЕРМЕНТ\"",
 	    "code": "40224612",
 	    "last_time": "2017-11-08 20:19:01",
 	    "location": "03028, м.Київ, Голосіївський район ВУЛИЦЯ САПЕРНО-СЛОБІДСЬКА, БУДИНОК 22, КВАРТИРА 262",
@@ -96,7 +259,7 @@ var UA_legal_entities = {
 	},
 	14305909: {
 	    "full_name": "ПУБЛІЧНЕ АКЦІОНЕРНЕ ТОВАРИСТВО \"РАЙФФАЙЗЕН БАНК АВАЛЬ\"",
-	    "short_name": "АТ \"РАЙФФАЙЗЕН БАНК АВАЛЬ\"",
+	    short_name: "АТ \"РАЙФФАЙЗЕН БАНК АВАЛЬ\"",
 	    "code": "14305909",
 	    "last_time": "2017-11-08 20:32:40",
 	    "location": "01011, м.Київ, Печерський район ВУЛИЦЯ  ЛЄСКОВА буд. 9",

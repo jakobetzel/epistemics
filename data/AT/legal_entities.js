@@ -2,6 +2,8 @@ var AT_legal_entities = {
     1: {
         name: 'Mantigma GmbH',
         code: '447445 h',
+        address: 'Siebenbrunnengasse 17, 1050 Wien, Austria',
+        company_register: 'Commercial Court of Vienna',
         persons: [
             {
                 id: 4,
@@ -115,42 +117,258 @@ var AT_legal_entities = {
     },
     11: {
         name: '25th-floor GmbH',
-        code: '409170 x'
+        code: '409170 x',
+        persons: [
+            {
+                id: 3,
+                country: 'DE',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 12,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 13,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 12,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            },
+            {
+                id: 13,
+                country: 'AT',
+                type: 'le',
+                role: 'MD',
+                to: '2016'
+            }
+        ]
     },
     14: {
         name: 'HELMBERGER & Partner KG',
-        code: '241358 p'
+        code: '241358 p',
+        persons: [
+            {
+                id: 13,
+                country: 'AT',
+                type: 'le',
+                role: 'LP'
+            },
+            {
+                id: 15,
+                country: 'AT',
+                type: 'le',
+                role: 'GP'
+            }
+        ]
     },
     16: {
         name: 'Venionaire Capital Ges.m.b.H.',
-        code: '385799 b'
+        code: '385799 b',
+        persons: [
+            {
+                id: 9,
+                country: 'AT',
+                type: 'le',
+                role: 'O',
+                to: '2016'
+            },
+            {
+                id: 22,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            },
+            {
+                id: 22,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 23,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 10,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            }
+        ]
     },
     17: {
         name: 'FRABANTO KG',
-        code: '450386 h'
+        code: '450386 h',
+        persons: [
+            {
+                id: 10,
+                country: 'AT',
+                type: 'le',
+                role: 'LP'
+            },
+            {
+                id: 18,
+                country: 'AT',
+                type: 'le',
+                role: 'GP'
+            }
+        ]
     },
     19: {
         name: 'Panamin GmbH',
-        code: '400232 b'
+        code: '400232 b',
+        persons: [
+            {
+                id: 18,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 20,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 20,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            },
+            {
+                id: 21,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            }
+        ]
     },
     23: {
-        name: 'March15 Unternehmensbeteiligungs und -beratungs GmbH'
+        name: 'March15 Unternehmensbeteiligungs und -beratungs GmbH',
+        persons: [
+            {
+                id: 28,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 28,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            }
+        ]
     },
     24: {
-        name: 'System 7 - Railsupport GmbH'
+        name: 'System 7 - Railsupport GmbH',
+        persons: [
+            {
+                id: 16,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            }
+        ]
     },
-      25:{
+    25:{
         name: 'Venionaire Investment GmbH', 
-        code: '423477 k'
+        code: '423477 k',
+        persons: [
+            {
+                id: 16,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 23,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 22,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            },
+            {
+                id: 29,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 30,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            }
+        ]
     },
     26: {
-        name: 'EGO Sports GmbH'
+        name: 'EGO Sports GmbH',
+        persons: [
+            {
+                id: 16,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            }
+        ]
     },
     27: {
-        name: 'DealMatrix GmbH'
+        name: 'DealMatrix GmbH',
+        persons: [
+            {
+                id: 16,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 32,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 32,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            }
+        ]
     },
     29: {
-        name: 'BAF 10 GmbH'
+        name: 'BAF 10 GmbH',
+        persons: [
+            {
+                id: 31,
+                country: 'AT',
+                type: 'le',
+                role: 'O'
+            },
+            {
+                id: 31,
+                country: 'AT',
+                type: 'le',
+                role: 'MD'
+            }
+        ]
     },
     33: {
         name: 'result-consult e.U.',
@@ -163,37 +381,3 @@ var AT_legal_entities = {
     }
 };
 
-//Still needs to be transformed to the new syntax
-
-    // {from: 3, to: 11, label: 'O'},
-    // {from: 12, to: 11, label: 'O'},
-    // {from: 13, to: 11, label: 'O'},
-    // {from: 12, to: 11, label: 'MD'},
-    // {from: 13, to: 11, label: '(MD)'},
-    // {from: 13, to: 14, label: 'LP'},
-    // {from: 15, to: 14, label: 'GP'},
-    // {from: 9, to: 16, label: '(O)'},
-    // {from: 10, to: 16, label: 'O'},
-    // {from: 10, to: 17, label: 'LP'},
-    // {from: 18, to: 17, label: 'GP'},
-    // {from: 18, to: 19, label: 'O'},
-    // {from: 20, to: 19, label: 'O'},
-    // {from: 20, to: 19, label: 'MD'},
-    // {from: 21, to: 19, label: 'O'},
-    // {from: 22, to: 16, label: 'O'},
-    // {from: 22, to: 16, label: 'MD'},
-    // {from: 23, to: 16, label: 'O'},
-    // {from: 16, to: 24, label: 'O'},
-    // {from: 16, to: 25, label: 'O'},
-    // {from: 16, to: 26, label: 'O'},
-    // {from: 16, to: 27, label: 'O'},
-    // {from: 28, to: 23, label: 'O'},
-    // {from: 28, to: 23, label: 'MD'},
-    // {from: 23, to: 25, label: 'O'},
-    // {from: 22, to: 25, label: 'MD'},
-    // {from: 29, to: 25, label: 'O'},
-    // {from: 30, to: 25, label: 'O'},
-    // {from: 31, to: 29, label: 'O'},
-    // {from: 31, to: 29, label: 'MD'},
-    // {from: 32, to: 27, label: 'MD'},
-    // {from: 32, to: 27, label: 'O'},

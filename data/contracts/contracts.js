@@ -14,6 +14,9 @@ var contracts = {
 				id: 4
 			}
 		]
+	},
+	2: {
+		file: ''
 	}
 };
 
