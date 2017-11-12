@@ -5,10 +5,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- vis.js -->
-		<script type="text/javascript" src="node_modules/vis/dist/vis.js"></script>
-		<link rel="stylesheet" href="node_modules/vis/dist/vis.css" type="text/css" />
-
 		<!-- JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -23,7 +19,14 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" href="style.css" type="text/css" />
-		<script type="text/javascript" src='graph.js'></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+			    $(".clickable-row").click(function() {
+			    	window.location = $(this).data("href");
+			    });
+			});
+		</script>
 	</head>
 	<body>
 		<header class="container-fluid">
