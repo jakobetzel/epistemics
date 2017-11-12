@@ -25,6 +25,13 @@ var UA_legal_entities = {
 				id: 104,
 				role: 'MD',
 				from: '2017'
+			},
+			{
+				country: 'UA',
+				type: 'le',
+				id: 102,
+				role: 'agreement on irrevocable financial assistance',
+				from: '2017'
 			}
 		]
 	},
