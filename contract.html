@@ -41,15 +41,27 @@
 				var c = url.searchParams.get("c");
 				var contract = contracts[c];
 				$('#contract').attr('data', 'data/contracts/' + contract['file']);
+				document.getElementById('contract_title').innerText = contract['name'];
+				document.getElementById('breadcrumb_name').innerText = contract['name'];
+				document.getElementById('contract_type').innerText = contract['type'];
 				var list = document.getElementById('entitiesList');
+				var details = document.getElementById('details');
 				for(var i = 0; i < contract['entities'].length; i++) {
-					var item = document.createElement('li');
 					var entity = entities[contract['entities'][i]['country']][contract['entities'][i]['type']][contract['entities'][i]['id']];
-					item.appendChild(document.createTextNode(
-						entity['name'] + " (" + 
+
+					//entity list
+					var item = document.createElement('li');
+					var link = document.createElement('a');
+					link.href = '#' + entity['code'] ? entity['code'] : entity['id'];
+					item.appendChild(link);
+					link.appendChild(document.createTextNode(
+						(entity['name'] ? entity['name'] : entity['short_name']) + " (" + 
 							(contract['entities'][i]['type'] == "le" ? "legal entity" : "natural person") + ")"
 					));
 					list.appendChild(item);
+
+					//entity details
+					//details.appendChild()
 				}
 			});
 		</script>
@@ -64,19 +76,19 @@
 		        <li class="breadcrumb-item"><a href="index.html">Deals</a></li>
 		        <li class="breadcrumb-item"><a href="case.html">Eagle [Mantigma GmbH]</a></li>
 		        <li class="breadcrumb-item"><a href="ndas.html">Confidentiality Agreements</a></li>
-		        <li class="breadcrumb-item active">Mantigma GmbH vs. Etzel, Jakob</li>
+		        <li class="breadcrumb-item active" id="breadcrumb_name">Mantigma GmbH vs. Etzel, Jakob</li>
 		    </ul>
 		</header>
 		<div class="container-fluid">
 			<div class="row content">
 				<div class="col-sm-8">
-					<object id="contract" data="" type="application/pdf" width="100%" height="2000px">
+					<object id="contract" type="application/pdf" width="100%" height="2000px">
 						alt : This document could not be shown.
 					</object>
 				</div>
 				<div class="col-sm-4 sidenav">
-                                        <h2>Mantigma GmbH vs. Etzel, Jakob</h2>
-					<p>This document has been classified as "NDA" and was last updated on 11.09.2017.</p>
+                    <h2 id="contract_title">Mantigma GmbH vs. Etzel, Jakob</h2>
+					<p>This document has been classified as "<span id="contract_type">NDA</span>" and was last updated on 11.09.2017.</p>
 					<h3>Entities detected</h3>
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search entities...">
@@ -86,16 +98,14 @@
 							</button>
 						</span>
 					</div>
-					<ol id='entitiesList'>
-						<li><a href="#e1">Mantigma GmbH</a> (legal entity)</li>
-						<li><a href="#e2">Jakob Etzel</a> (natural person)</li>
-					</ol>
+					<ol id='entitiesList'></ol>
+					<button type='button' id='openGraph' class="my-awesome-btn">Open Graph</button>
 					<h3>Detailed information<h3>
+					<div id="details"></div>
 					<h4 id="e1">1. Mantigma GmbH</h4>
 					<p>Legal entity<br>Country: Austria<br>Address: Siebenbrunnengasse 17, 1050 Wien, Austria<br>Company register number: FN 447445 h<br>Company register: Commercial Court of Vienna
 					</p>
 					<h5>Relationships</h5>
-					<button type='button' id='openGraph' class="my-awesome-btn">Open Graph</button>
 					<ul>
 						<li>Shareholders:<a href="#">Jan Michael Auer</a>, <a href="#">borisgloger beteiligungs gmbh</a>, <a href="#">Jakob Etzel</a>, <a href="#">Martin Prebio</a>, <a href="#">Richard Knoll</a></li>
 						<li>Past shareholders: na</li>
